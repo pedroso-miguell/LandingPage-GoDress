@@ -8,6 +8,7 @@
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
     <link rel="shortcut icon" href="./img/favicon.png" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <title>GoDress</title>
 
 </head>
@@ -34,31 +35,47 @@
     -->
     <main>
         <section class="home">
-            <div>
-                <img class="logo" src="./img/logo.svg" alt="">
+
+
+            <div class="logo">
+                <img src="./img/logo.svg" alt="">
+
+                <div class="div-bnt-registro">
+                    <h2>O maior guarda-roupas digital <br>do Brasil em breve na sua mão</h2>
+
+                    <a href="#" class="home-btn">Pré Registro</a>
+                </div>
 
             </div>
-            <div class="home-img">
-                <img src="img/celularteste.png" alt="hamburguer">
-                <a href="#" class="home-btn">Pré Registro</a>
+
+            <div class="phone">
+                <div data-aos="fade-up" data-aos-offset="200" data-aos-delay="50" data-aos-duration="1000"
+                    data-aos-easing="ease-in-out" data-aos-once="false"  class="home-img">
+
+                    <img src="img/celularteste.png" alt="hamburguer">
+
+                </div>
+
             </div>
 
         </section>
 
         <section class="descricao">
             <div class="descricao-txt">
-                <h1>o que é a Go Dress</h1>
-                <p>A GoDress será um aplicativo inovador que <br>
-                    permite aos usuários organizar suas roupas de <br>
-                    forma eficiente, criar outfits incríveis e receber<br>
-                    sugestões personalizadas com base em suas<br>
-                    preferências e no tipo de evento. Com uma<br>
-                    interface intuitiva e recursos avançados, a <br>
-                    GoDress será o seu melhor aliado na hora de<br>
+
+                <h1>O que é a GoDress ?</h1>
+                <p>A GoDress será um aplicativo inovador que
+                    permite aos usuários organizar suas roupas de
+                    forma eficiente, criar outfits incríveis e receber
+                    sugestões personalizadas com base em suas
+                    preferências e no tipo de evento. Com uma
+                    interface intuitiva e recursos avançados, a
+                    GoDress será o seu melhor aliado na hora de
                     se vestir para qualquer ocasião.
                 </p>
+
             </div>
-            <div class="descricao-img">
+            <div data-aos="fade-left" data-aos-duration="2000" class="descricao-img">
                 <img src="./img/barphone.png" alt="teste">
             </div>
         </section>
@@ -66,11 +83,11 @@
         <section class="objetivo">
             <div class="objetivo-txt">
                 <h1>Nosso Objetivo:</h1>
-                <p>Nosso principal objetivo é facilitar a vida das <br>
-                    pessoas, tornando o processo de seleção de roupas<br>
-                    mais fácil, eficiente e divertido. Queremos<br>
-                    ajudar nossos usuários a se sentirem confiantes e <br>bem-vestidos em qualquer ocasião, sem o
-                    estresse <br>
+                <p>Nosso principal objetivo é facilitar a vida das
+                    pessoas, tornando o processo de seleção de roupas
+                    mais fácil, eficiente e divertido. Queremos
+                    ajudar nossos usuários a se sentirem confiantes e bem-vestidos em qualquer ocasião, sem o
+                    estresse
                     de escolher o outfit perfeito.
                 </p>
             </div>
@@ -82,10 +99,11 @@
         <section class="proposta">
             <div class="proposta-txt">
                 <h1>Nossa proposta:</h1>
-                <p>A GoDress propõe uma abordagem revolucionária para a <br>organização de roupas, oferecendo um armário
-                    virtual <br>inteligente que se adapta às necessidades individuais de <br>cada usuário. Com recursos
-                    avançados como sugestões <br>personalizadas, integração meteorológica e lavanderia<br> digital, nossa
-                    proposta é revolucionar a maneira como as<br> pessoas gerenciam seus guarda-roupas.
+                <p>A GoDress propõe uma abordagem revolucionária para a organização de roupas, oferecendo um armário
+                    virtual inteligente que se adapta às necessidades individuais de cada usuário. Com recursos
+                    avançados como sugestões personalizadas, integração meteorológica e lavanderia digital,
+                    nossa
+                    proposta é revolucionar a maneira como as pessoas gerenciam seus guarda-roupas.
                 </p>
             </div>
             <div class="proposta-img">
@@ -93,15 +111,40 @@
             </div>
         </section>
 
-        <section class="wireframes">
+        <section>
+            <div class="wireframes">
+                <div class="wireframes-txt">
+                    <h1>wireframes</h1>
+                </div>
+                <div class="carrosel">
+                    <!-- carrosel com imagens dos wireframes -->
 
+                </div>
+            </div>
         </section>
+
+        <footer>
+            <div class="footer">
+                <div class="footer-text">
+                    <h1>Em Breve</h1>
+                    <p>Faça parte da revolução na organização de roupas e torne seu processo de seleção de looks mais
+                        fácil,
+                        eficiente e divertido com a GoDress. Cadastre-se agora e comece a transformar sua maneira de
+                        se
+                        vestir!</p>
+                </div>
+            </div>
+        </footer>
 
 
 
     </main>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
