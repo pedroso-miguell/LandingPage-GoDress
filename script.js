@@ -1,38 +1,68 @@
-const menu = document.querySelector('.menu');
-const NavMenu = document.querySelector('.nav-menu');
-import AOS from 'aos';
-import 'aos/dist/aos.css'; // You can also use <link> for styles
-// ..
-AOS.init();
-
-menu.addEventListener('click', () => {
-    menu.classList.toggle('ativo');
-    NavMenu.classList.toggle('ativo');
-})
-
-AOS.init();
-
-// You can also pass an optional settings object
-// below listed default settings
-AOS.init({
-  // Global settings:
-  disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
-  startEvent: 'DOMContentLoaded', // name of the event dispatched on the document, that AOS should initialize on
-  initClassName: 'aos-init', // class applied after initialization
-  animatedClassName: 'aos-animate', // class applied on animation
-  useClassNames: false, // if true, will add content of `data-aos` as classes on scroll
-  disableMutationObserver: false, // disables automatic mutations' detections (advanced)
-  debounceDelay: 50, // the delay on debounce used while resizing window (advanced)
-  throttleDelay: 99, // the delay on throttle used while scrolling the page (advanced)
+const initSlider = () => {
+  const imageList = document.querySelector(".slider-wrapper .image-list");
+  const slideButtons = document.querySelectorAll(".slider-wrapper .slide-button");
+  const sliderScrollbar = document.querySelector(".container .slider-scrollbar");
+  const scrollbarThumb = sliderScrollbar.querySelector(".scrollbar-thumb");
+  const maxScrollLeft = imageList.scrollWidth - imageList.clientWidth;
   
+  // Handle scrollbar thumb drag
+  scrollbarThumb.addEventListener("mousedown", (e) => {
+      const startX = e.clientX;
+      const thumbPosition = scrollbarThumb.offsetLeft;
+      const maxThumbPosition = sliderScrollbar.getBoundingClientRect().width - scrollbarThumb.offsetWidth;
+      
+      // Update thumb position on mouse move
+      const handleMouseMove = (e) => {
+          const deltaX = e.clientX - startX;
+          const newThumbPosition = thumbPosition + deltaX;
 
-  // Settings that can be overridden on per-element basis, by `data-aos-*` attributes:
-  offset: 120, // offset (in px) from the original trigger point
-  delay: 0, // values from 0 to 3000, with step 50ms
-  duration: 400, // values from 0 to 3000, with step 50ms
-  easing: 'ease', // default easing for AOS animations
-  once: false, // whether animation should happen only once - while scrolling down
-  mirror: false, // whether elements should animate out while scrolling past them
-  anchorPlacement: 'top-bottom', // defines which position of the element regarding to window should trigger the animation
+          // Ensure the scrollbar thumb stays within bounds
+          const boundedPosition = Math.max(0, Math.min(maxThumbPosition, newThumbPosition));
+          const scrollPosition = (boundedPosition / maxThumbPosition) * maxScrollLeft;
+          
+          scrollbarThumb.style.left = `${boundedPosition}px`;
+          imageList.scrollLeft = scrollPosition;
+      }
 
-});
+      // Remove event listeners on mouse up
+      const handleMouseUp = () => {
+          document.removeEventListener("mousemove", handleMouseMove);
+          document.removeEventListener("mouseup", handleMouseUp);
+      }
+
+      // Add event listeners for drag interaction
+      document.addEventListener("mousemove", handleMouseMove);
+      document.addEventListener("mouseup", handleMouseUp);
+  });
+
+  // Slide images according to the slide button clicks
+  slideButtons.forEach(button => {
+      button.addEventListener("click", () => {
+          const direction = button.id === "prev-slide" ? -1 : 1;
+          const scrollAmount = imageList.clientWidth * direction;
+          imageList.scrollBy({ left: scrollAmount, behavior: "smooth" });
+      });
+  });
+
+   // Show or hide slide buttons based on scroll position
+  const handleSlideButtons = () => {
+      slideButtons[0].style.display = imageList.scrollLeft <= 0 ? "none" : "flex";
+      slideButtons[1].style.display = imageList.scrollLeft >= maxScrollLeft ? "none" : "flex";
+  }
+
+  // Update scrollbar thumb position based on image scroll
+  const updateScrollThumbPosition = () => {
+      const scrollPosition = imageList.scrollLeft;
+      const thumbPosition = (scrollPosition / maxScrollLeft) * (sliderScrollbar.clientWidth - scrollbarThumb.offsetWidth);
+      scrollbarThumb.style.left = `${thumbPosition}px`;
+  }
+
+  // Call these two functions when image list scrolls
+  imageList.addEventListener("scroll", () => {
+      updateScrollThumbPosition();
+      handleSlideButtons();
+  });
+}
+
+window.addEventListener("resize", initSlider);
+window.addEventListener("load", initSlider);
