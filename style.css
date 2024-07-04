@@ -899,7 +899,7 @@ footer {
         flex-direction: column;
         padding: 40px 0;
         font-size: 24px;
-        padding-left: 33%;
+        padding-left: 32%;
     }
 
     .footer {
@@ -929,6 +929,7 @@ footer {
     footer {
         background: linear-gradient(180deg, #1C1C1C 8.42%, #593C9D 100%);
     }
+
 
 
 }
@@ -1064,9 +1065,11 @@ footer {
   }
 
   .slider-wrapper .image-list .image-item {
-    width: 330px;
-    height: 780px;
+    width: 280px;
+    height: 690px;
     margin-top: 40px;
+    margin-left: 10px;
+    margin-right: 10px;
   }
 
   .slider-scrollbar .scrollbar-thumb {
