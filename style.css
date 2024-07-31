@@ -274,13 +274,14 @@ main {
 
 .proposta-img img {
     padding-top: 40px;
-    width: 350px;
+    padding-bottom: 30px;
+    width: 300px;
 }
 
 .wireframes {
     display: flex;
     justify-content: center;
-    min-height: 1200px;
+    
 }
 
 
@@ -288,8 +289,10 @@ main {
     padding-top: 10px;
     font-size: 32px;
     font-weight: 900;
-    position: absolute;
-    padding-left: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .footer {
@@ -899,7 +902,6 @@ footer {
         flex-direction: column;
         padding: 40px 0;
         font-size: 24px;
-        padding-left: 32%;
     }
 
     .footer {
@@ -986,7 +988,6 @@ footer {
 .slider-wrapper .image-list {
   display: grid;
   grid-template-columns: repeat(10, 1fr);
-  gap: 18px;
   font-size: 0;
   list-style: none;
   margin-bottom: 30px;
@@ -999,9 +1000,9 @@ footer {
 }
 
 .slider-wrapper .image-list .image-item {
-  width: 325px;
-  height: 800px;
-  object-fit: cover;
+  width: 300px;
+  height: 600px;
+  object-fit: contain;
   padding-top: 30%;
 }
 
@@ -1065,8 +1066,8 @@ footer {
   }
 
   .slider-wrapper .image-list .image-item {
-    width: 280px;
-    height: 690px;
+    width: 250px;
+    height: 60  0px;
     margin-top: 40px;
     margin-left: 10px;
     margin-right: 10px;
